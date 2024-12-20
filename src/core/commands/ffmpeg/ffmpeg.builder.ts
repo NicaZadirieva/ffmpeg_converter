@@ -1,8 +1,6 @@
 
 export default class FfmpegBuilder {
     private inputPath: string | undefined;
-    private width: number | undefined;
-    private height: number | undefined;
     private options : Map<string, string> = new Map();
 
     constructor() {
@@ -26,9 +24,6 @@ export default class FfmpegBuilder {
         }
         if (!outputPath) {
             throw new Error('Output file is required');
-        }
-        if (!this.width || !this.height) {
-            throw new Error('width or height must be set');
         }
         const args: string[] = ['-i', this.inputPath];
 
