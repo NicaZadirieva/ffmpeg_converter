@@ -17,9 +17,8 @@ export class FileService {
         return join(dirname(path) + '/' + name + "." + ext);
     }
 
-    async deleteFileIfExists(path: string, name: string) {
-        const filePath = this.getFilePath(path, name, '');
-        if (await this.isExist(filePath)) {
+    async deleteFileIfExists(path: string) {
+        if (await this.isExist(path)) {
             promises.unlink(path);
         }
     }

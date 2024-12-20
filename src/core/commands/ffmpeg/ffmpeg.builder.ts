@@ -15,17 +15,6 @@ export default class FfmpegBuilder {
 
     
 
-    setWidth(width: number): this {
-        this.width = width;
-
-        return this;
-    }
-
-    setHeight(height: number): this {
-        this.height = height;
-        return this;
-    }
-
     setVideoSize(width: number, height: number): this {
         this.options.set('-s', `${width}x${height}`);
         return this;
@@ -49,11 +38,8 @@ export default class FfmpegBuilder {
         });
         args.push(outputPath);
 
-        const ffmpegCommand = {
-            command: 'ffmpeg',
-            args: this.options
-        };
-        return ffmpegCommand;
+        
+        return args;
     }
     
 }
