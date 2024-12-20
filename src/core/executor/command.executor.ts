@@ -4,7 +4,7 @@ import { ICommandExec } from './command.types';
 
 export abstract class CommandExecutor<Input>{
     constructor(private logger: IStreamLogger) {} 
-    public async execute(command: string) {
+    public async execute() {
         const input = await this.prompt();
         const commandArgs = this.build(input);
         const childProcess = this.spawn(commandArgs);
